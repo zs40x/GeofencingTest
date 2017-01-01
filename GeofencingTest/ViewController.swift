@@ -13,15 +13,19 @@ import CoreLocation
 class ViewController: UIViewController {
 
     fileprivate let locationManager = CLLocationManager()
+    fileprivate let mkMapCamera = MKMapCamera()
     
     @IBOutlet weak var mapView: MKMapView!
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        mkMapCamera.altitude = 5000
+        
         mapView.showsScale = true
         mapView.showsCompass = true
         mapView.showsUserLocation = true
+        mapView.setCamera(mkMapCamera, animated: false)
         
         locationManager.delegate = self
         locationManager.requestAlwaysAuthorization()
