@@ -14,6 +14,7 @@
 		D4B6C69D1E192EF800C18281 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D4B6C69C1E192EF800C18281 /* Assets.xcassets */; };
 		D4B6C6A01E192EF800C18281 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D4B6C69E1E192EF800C18281 /* LaunchScreen.storyboard */; };
 		D4B6C6AB1E192EF800C18281 /* GeofencingTestTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4B6C6AA1E192EF800C18281 /* GeofencingTestTests.swift */; };
+		D4B6C6B71E192FF400C18281 /* MapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D4B6C6B61E192FF400C18281 /* MapKit.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -38,6 +39,7 @@
 		D4B6C6A61E192EF800C18281 /* GeofencingTestTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = GeofencingTestTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		D4B6C6AA1E192EF800C18281 /* GeofencingTestTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GeofencingTestTests.swift; sourceTree = "<group>"; };
 		D4B6C6AC1E192EF800C18281 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		D4B6C6B61E192FF400C18281 /* MapKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MapKit.framework; path = System/Library/Frameworks/MapKit.framework; sourceTree = SDKROOT; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -45,6 +47,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				D4B6C6B71E192FF400C18281 /* MapKit.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -64,6 +67,7 @@
 				D4B6C6911E192EF800C18281 /* GeofencingTest */,
 				D4B6C6A91E192EF800C18281 /* GeofencingTestTests */,
 				D4B6C6901E192EF800C18281 /* Products */,
+				D4B6C6B51E192FF400C18281 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -97,6 +101,14 @@
 				D4B6C6AC1E192EF800C18281 /* Info.plist */,
 			);
 			path = GeofencingTestTests;
+			sourceTree = "<group>";
+		};
+		D4B6C6B51E192FF400C18281 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				D4B6C6B61E192FF400C18281 /* MapKit.framework */,
+			);
+			name = Frameworks;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
