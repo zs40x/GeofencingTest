@@ -20,11 +20,9 @@ class ViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        mkMapCamera.altitude = 5000
-        
         mapView.showsScale = true
         mapView.showsCompass = true
-        mapView.showsUserLocation = true
+        mapView.showsUserLocation = true // ToDo: only when authorization granted
         mapView.setCamera(mkMapCamera, animated: false)
         
         locationManager.delegate = self
@@ -39,7 +37,12 @@ extension ViewController: CLLocationManagerDelegate {
         
         guard let lastLocation = locations.last else { return }
         
-        mapView.setCenter(lastLocation.coordinate, animated: true)
+        let mapRegion = MKCoordinateRegion(center: lastLocation.coordinate, span: MKCoordinateSpan(latitudeDelta: 0.1, longitudeDelta: 0.1))
+        
+        mapView.setRegion(mapRegion, animated: true)
+        
+        //mapView.setCenter(lastLocation.coordinate, animated: true)
+        //mkMapCamera.centerCoordinate = lastLocation.coordinate
     }
 }
 
