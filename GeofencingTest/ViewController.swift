@@ -25,7 +25,6 @@ class ViewController: UIViewController {
         
         mapView.showsScale = true
         mapView.showsCompass = true
-        mapView.showsUserLocation = true // ToDo: only when authorization granted
         
         locationManager.delegate = self
         locationManager.requestAlwaysAuthorization()
@@ -34,6 +33,16 @@ class ViewController: UIViewController {
 }
 
 extension ViewController: CLLocationManagerDelegate {
+    
+    func locationManager(_ manager: CLLocationManager, didChangeAuthorization status: CLAuthorizationStatus) {
+        
+        guard status == .authorizedAlways else {
+            NSLog("ViewController.locationManager.didChangeAutorization -> not authorized!")
+            return
+        }
+        
+        mapView.showsUserLocation = true
+    }
     
     func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
         
