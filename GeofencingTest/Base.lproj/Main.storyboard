@@ -33,6 +33,9 @@
                             <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="oxS-GO-dHo" secondAttribute="bottom" id="wgg-jk-Bbg"/>
                         </constraints>
                     </view>
+                    <connections>
+                        <outlet property="mapView" destination="oxS-GO-dHo" id="Lc2-LJ-2DG"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
