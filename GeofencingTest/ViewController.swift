@@ -15,11 +15,16 @@ class ViewController: UIViewController {
     fileprivate let locationManager = CLLocationManager()
     fileprivate let mapCamera = MKMapCamera()
     fileprivate var cameraZoomInitialized = false
+    fileprivate var mapLongPressGestureRecognizer: UITapGestureRecognizer?
+    
     
     @IBOutlet weak var mapView: MKMapView!
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        mapLongPressGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(mapLongTap))
+        mapView.addGestureRecognizer(mapLongPressGestureRecognizer!)
         
         mapView.showsScale = true
         mapView.showsCompass = true
@@ -35,6 +40,17 @@ class ViewController: UIViewController {
     override func viewWillAppear(_ animated: Bool) {
         cameraZoomInitialized = false
     }
+    
+    func mapLongTap(_ gestureReconizer: UILongPressGestureRecognizer) {
+        
+        let location = gestureReconizer.location(in: mapView)
+        let coordinate = mapView.convert(location, toCoordinateFrom: mapView)
+        
+        let annotation = MKPointAnnotation()
+        annotation.coordinate = coordinate
+        mapView.addAnnotation(annotation)
+    }
+    
 }
 
 extension ViewController: MKMapViewDelegate {
@@ -75,4 +91,3 @@ extension ViewController: CLLocationManagerDelegate {
         }
     }
 }
-
