@@ -15,6 +15,7 @@
 		D4B6C6A01E192EF800C18281 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D4B6C69E1E192EF800C18281 /* LaunchScreen.storyboard */; };
 		D4B6C6AB1E192EF800C18281 /* GeofencingTestTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4B6C6AA1E192EF800C18281 /* GeofencingTestTests.swift */; };
 		D4B6C6B71E192FF400C18281 /* MapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D4B6C6B61E192FF400C18281 /* MapKit.framework */; };
+		D4B6C6B91E1A9B1A00C18281 /* GeofenceViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4B6C6B81E1A9B1A00C18281 /* GeofenceViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -40,6 +41,7 @@
 		D4B6C6AA1E192EF800C18281 /* GeofencingTestTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GeofencingTestTests.swift; sourceTree = "<group>"; };
 		D4B6C6AC1E192EF800C18281 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		D4B6C6B61E192FF400C18281 /* MapKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MapKit.framework; path = System/Library/Frameworks/MapKit.framework; sourceTree = SDKROOT; };
+		D4B6C6B81E1A9B1A00C18281 /* GeofenceViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GeofenceViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -90,6 +92,7 @@
 				D4B6C69E1E192EF800C18281 /* LaunchScreen.storyboard */,
 				D4B6C6A11E192EF800C18281 /* Info.plist */,
 				D4B6C6991E192EF800C18281 /* GeofencingTest.xcdatamodeld */,
+				D4B6C6B81E1A9B1A00C18281 /* GeofenceViewController.swift */,
 			);
 			path = GeofencingTest;
 			sourceTree = "<group>";
@@ -218,6 +221,7 @@
 			files = (
 				D4B6C6951E192EF800C18281 /* MapViewController.swift in Sources */,
 				D4B6C6931E192EF800C18281 /* AppDelegate.swift in Sources */,
+				D4B6C6B91E1A9B1A00C18281 /* GeofenceViewController.swift in Sources */,
 				D4B6C69B1E192EF800C18281 /* GeofencingTest.xcdatamodeld in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
