@@ -49,6 +49,8 @@ class MapViewController: UIViewController {
         let annotation = MKPointAnnotation()
         annotation.coordinate = coordinate
         mapView.addAnnotation(annotation)
+        
+        performSegue(withIdentifier: "showGeofenceViewController", sender: self)
     }
     
 }
