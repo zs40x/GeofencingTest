@@ -25,10 +25,19 @@ class ViewController: UIViewController {
         
         mapView.showsScale = true
         mapView.showsCompass = true
+        mapView.delegate = self
         
         locationManager.delegate = self
         locationManager.requestAlwaysAuthorization()
         locationManager.startUpdatingLocation()
+    }
+}
+
+extension ViewController: MKMapViewDelegate {
+    
+    func mapView(_ mapView: MKMapView, didUpdate userLocation: MKUserLocation) {
+        
+        NSLog("Map is now centered on \(userLocation)")
     }
 }
 
