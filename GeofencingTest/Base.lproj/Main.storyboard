@@ -43,10 +43,10 @@
             </objects>
             <point key="canvasLocation" x="972" y="38.23088455772114"/>
         </scene>
-        <!--View Controller-->
+        <!--Geofence-->
         <scene sceneID="Utu-dn-vzS">
             <objects>
-                <viewController id="Sva-ba-X6g" sceneMemberID="viewController">
+                <viewController id="Sva-ba-X6g" customClass="GeofenceViewController" customModule="GeofencingTest" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="UVG-WS-JO9"/>
                         <viewControllerLayoutGuide type="bottom" id="BvP-X5-rHt"/>
@@ -56,6 +56,9 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
+                    <navigationItem key="navigationItem" title="Geofence" id="UUY-TD-MDv">
+                        <barButtonItem key="leftBarButtonItem" title="&lt; back" id="SgF-Vh-BIO"/>
+                    </navigationItem>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Qle-tb-6A9" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
