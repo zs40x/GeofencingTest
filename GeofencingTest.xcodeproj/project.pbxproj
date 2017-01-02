@@ -86,10 +86,9 @@
 			isa = PBXGroup;
 			children = (
 				D4B6C6921E192EF800C18281 /* AppDelegate.swift */,
-				D4B6C6961E192EF800C18281 /* Main.storyboard */,
+				D4B6C6BB1E1ACB7D00C18281 /* Storyboards */,
 				D4B6C6BA1E1A9BEB00C18281 /* ViewControllers */,
 				D4B6C69C1E192EF800C18281 /* Assets.xcassets */,
-				D4B6C69E1E192EF800C18281 /* LaunchScreen.storyboard */,
 				D4B6C6A11E192EF800C18281 /* Info.plist */,
 				D4B6C6991E192EF800C18281 /* GeofencingTest.xcdatamodeld */,
 			);
@@ -120,6 +119,15 @@
 				D4B6C6941E192EF800C18281 /* MapViewController.swift */,
 			);
 			name = ViewControllers;
+			sourceTree = "<group>";
+		};
+		D4B6C6BB1E1ACB7D00C18281 /* Storyboards */ = {
+			isa = PBXGroup;
+			children = (
+				D4B6C6961E192EF800C18281 /* Main.storyboard */,
+				D4B6C69E1E192EF800C18281 /* LaunchScreen.storyboard */,
+			);
+			name = Storyboards;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -438,6 +446,7 @@
 				D4B6C6B11E192EF800C18281 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		D4B6C6B21E192EF800C18281 /* Build configuration list for PBXNativeTarget "GeofencingTestTests" */ = {
 			isa = XCConfigurationList;
@@ -446,6 +455,7 @@
 				D4B6C6B41E192EF800C18281 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 
