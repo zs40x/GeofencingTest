@@ -36,6 +36,7 @@
                     <navigationItem key="navigationItem" id="H1Q-nB-5Dc"/>
                     <connections>
                         <outlet property="mapView" destination="oxS-GO-dHo" id="Lc2-LJ-2DG"/>
+                        <segue destination="Sva-ba-X6g" kind="show" identifier="showGeofenceViewController" id="KiC-5Z-HAY"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
