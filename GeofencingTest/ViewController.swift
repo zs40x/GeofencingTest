@@ -14,22 +14,26 @@ class ViewController: UIViewController {
 
     fileprivate let locationManager = CLLocationManager()
     fileprivate let mapCamera = MKMapCamera()
+    fileprivate var cameraZoomInitialized = false
     
     @IBOutlet weak var mapView: MKMapView!
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        mapCamera.altitude = 2000
-        mapView.setCamera(mapCamera, animated: false)
-        
         mapView.showsScale = true
         mapView.showsCompass = true
         mapView.delegate = self
         
+        mapCamera.altitude = 1000
+        
         locationManager.delegate = self
         locationManager.requestAlwaysAuthorization()
         locationManager.startUpdatingLocation()
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        cameraZoomInitialized = false
     }
 }
 
@@ -57,7 +61,18 @@ extension ViewController: CLLocationManagerDelegate {
         
         guard let lastLocation = locations.last else { return }
         
-        mapView.setCenter(lastLocation.coordinate, animated: true)
+        DispatchQueue.main.async {
+            [unowned self, coordinate = lastLocation.coordinate] in
+         
+            
+            if !self.cameraZoomInitialized {
+                self.mapView.setCamera(self.mapCamera, animated: false)
+            }
+            
+            self.mapView.setCenter(coordinate, animated: self.cameraZoomInitialized)
+        
+            self.cameraZoomInitialized = true
+        }
     }
 }
 
