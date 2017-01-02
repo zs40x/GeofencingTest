@@ -8,7 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		D4B6C6931E192EF800C18281 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4B6C6921E192EF800C18281 /* AppDelegate.swift */; };
-		D4B6C6951E192EF800C18281 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4B6C6941E192EF800C18281 /* ViewController.swift */; };
+		D4B6C6951E192EF800C18281 /* MapViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4B6C6941E192EF800C18281 /* MapViewController.swift */; };
 		D4B6C6981E192EF800C18281 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D4B6C6961E192EF800C18281 /* Main.storyboard */; };
 		D4B6C69B1E192EF800C18281 /* GeofencingTest.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = D4B6C6991E192EF800C18281 /* GeofencingTest.xcdatamodeld */; };
 		D4B6C69D1E192EF800C18281 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D4B6C69C1E192EF800C18281 /* Assets.xcassets */; };
@@ -30,7 +30,7 @@
 /* Begin PBXFileReference section */
 		D4B6C68F1E192EF800C18281 /* GeofencingTest.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = GeofencingTest.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		D4B6C6921E192EF800C18281 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		D4B6C6941E192EF800C18281 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		D4B6C6941E192EF800C18281 /* MapViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapViewController.swift; sourceTree = "<group>"; };
 		D4B6C6971E192EF800C18281 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		D4B6C69A1E192EF800C18281 /* GeofencingTest.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = GeofencingTest.xcdatamodel; sourceTree = "<group>"; };
 		D4B6C69C1E192EF800C18281 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -84,7 +84,7 @@
 			isa = PBXGroup;
 			children = (
 				D4B6C6921E192EF800C18281 /* AppDelegate.swift */,
-				D4B6C6941E192EF800C18281 /* ViewController.swift */,
+				D4B6C6941E192EF800C18281 /* MapViewController.swift */,
 				D4B6C6961E192EF800C18281 /* Main.storyboard */,
 				D4B6C69C1E192EF800C18281 /* Assets.xcassets */,
 				D4B6C69E1E192EF800C18281 /* LaunchScreen.storyboard */,
@@ -216,7 +216,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				D4B6C6951E192EF800C18281 /* ViewController.swift in Sources */,
+				D4B6C6951E192EF800C18281 /* MapViewController.swift in Sources */,
 				D4B6C6931E192EF800C18281 /* AppDelegate.swift in Sources */,
 				D4B6C69B1E192EF800C18281 /* GeofencingTest.xcdatamodeld in Sources */,
 			);

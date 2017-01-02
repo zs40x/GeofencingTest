@@ -10,7 +10,7 @@ import UIKit
 import MapKit
 import CoreLocation
 
-class ViewController: UIViewController {
+class MapViewController: UIViewController {
 
     fileprivate let locationManager = CLLocationManager()
     fileprivate let mapCamera = MKMapCamera()
@@ -53,7 +53,7 @@ class ViewController: UIViewController {
     
 }
 
-extension ViewController: MKMapViewDelegate {
+extension MapViewController: MKMapViewDelegate {
     
     func mapView(_ mapView: MKMapView, didUpdate userLocation: MKUserLocation) {
         
@@ -61,7 +61,7 @@ extension ViewController: MKMapViewDelegate {
     }
 }
 
-extension ViewController: CLLocationManagerDelegate {
+extension MapViewController: CLLocationManagerDelegate {
     
     func locationManager(_ manager: CLLocationManager, didChangeAuthorization status: CLAuthorizationStatus) {
         
