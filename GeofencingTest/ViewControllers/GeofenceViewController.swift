@@ -11,7 +11,12 @@ import UIKit
 
 class GeofenceViewController : UIViewController {
     
+    
     override func viewDidLoad() {
         
+    }
+    
+    @IBAction func actionNavBarBack(_ sender: Any) {
+        _ = self.navigationController?.popViewController(animated: true)
     }
 }

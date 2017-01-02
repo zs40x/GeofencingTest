@@ -57,7 +57,11 @@
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
                     <navigationItem key="navigationItem" title="Geofence" id="UUY-TD-MDv">
-                        <barButtonItem key="leftBarButtonItem" title="&lt; back" id="SgF-Vh-BIO"/>
+                        <barButtonItem key="leftBarButtonItem" title="&lt; back" id="SgF-Vh-BIO">
+                            <connections>
+                                <action selector="actionNavBarBack:" destination="Sva-ba-X6g" id="48a-S2-YsO"/>
+                            </connections>
+                        </barButtonItem>
                     </navigationItem>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Qle-tb-6A9" userLabel="First Responder" sceneMemberID="firstResponder"/>
