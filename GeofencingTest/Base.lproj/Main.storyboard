@@ -64,17 +64,20 @@
                                             <stackView opaque="NO" contentMode="scaleToFill" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="lOI-fk-WXm">
                                                 <rect key="frame" x="0.0" y="0.0" width="375" height="30"/>
                                                 <subviews>
-                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" horizontalCompressionResistancePriority="751" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="bOp-Ix-3hz">
-                                                        <rect key="frame" x="0.0" y="0.0" width="42" height="30"/>
+                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" horizontalCompressionResistancePriority="751" text="Radius (m)" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="bOp-Ix-3hz">
+                                                        <rect key="frame" x="0.0" y="0.0" width="82" height="30"/>
                                                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                         <nil key="textColor"/>
                                                         <nil key="highlightedColor"/>
                                                     </label>
-                                                    <slider opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="0.5" minValue="0.0" maxValue="1" translatesAutoresizingMaskIntoConstraints="NO" id="3WU-Ez-Rau">
-                                                        <rect key="frame" x="50" y="0.0" width="275" height="31"/>
+                                                    <slider opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="5" minValue="5" maxValue="1500" translatesAutoresizingMaskIntoConstraints="NO" id="3WU-Ez-Rau">
+                                                        <rect key="frame" x="90" y="0.0" width="266.5" height="31"/>
+                                                        <connections>
+                                                            <action selector="actionRadiusSliderValueChanged:" destination="hFP-3A-tCP" eventType="valueChanged" id="CM6-WG-cOp"/>
+                                                        </connections>
                                                     </slider>
-                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" horizontalCompressionResistancePriority="751" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="wVC-9H-IMl">
-                                                        <rect key="frame" x="333" y="0.0" width="42" height="30"/>
+                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" horizontalCompressionResistancePriority="751" text="5" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="wVC-9H-IMl">
+                                                        <rect key="frame" x="364.5" y="0.0" width="10.5" height="30"/>
                                                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                         <nil key="textColor"/>
                                                         <nil key="highlightedColor"/>
@@ -84,8 +87,8 @@
                                             <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="hRS-Vq-pUp">
                                                 <rect key="frame" x="0.0" y="30" width="375" height="29"/>
                                                 <segments>
-                                                    <segment title="First"/>
-                                                    <segment title="Second"/>
+                                                    <segment title="Enter"/>
+                                                    <segment title="Exit"/>
                                                 </segments>
                                             </segmentedControl>
                                         </subviews>
@@ -103,6 +106,11 @@
                             <constraint firstItem="VJG-Ur-8GV" firstAttribute="top" secondItem="UVG-WS-JO9" secondAttribute="bottom" id="R4X-9a-EFU"/>
                             <constraint firstItem="VJG-Ur-8GV" firstAttribute="leading" secondItem="hFP-3A-tCP" secondAttribute="leading" id="fj1-AU-iUw"/>
                         </constraints>
+                        <connections>
+                            <outlet property="labelRadius" destination="wVC-9H-IMl" id="CME-aV-KUg"/>
+                            <outlet property="segmentsMonitoringMode" destination="hRS-Vq-pUp" id="S5A-Uc-rUm"/>
+                            <outlet property="sliderRadius" destination="3WU-Ez-Rau" id="lx6-SJ-xya"/>
+                        </connections>
                     </view>
                     <navigationItem key="navigationItem" title="Geofence" id="UUY-TD-MDv">
                         <barButtonItem key="leftBarButtonItem" title="&lt; back" id="SgF-Vh-BIO">

@@ -11,12 +11,18 @@ import UIKit
 
 class GeofenceViewController : UIViewController {
     
+    @IBOutlet weak var sliderRadius: UISlider!
+    @IBOutlet weak var labelRadius: UILabel!
+    @IBOutlet weak var segmentsMonitoringMode: UISegmentedControl!
     
     override func viewDidLoad() {
-        
+        super.viewDidLoad()
     }
     
     @IBAction func actionNavBarBack(_ sender: Any) {
         _ = self.navigationController?.popViewController(animated: true)
+    }
+    
+    @IBAction func actionRadiusSliderValueChanged(_ sender: Any) {
     }
 }
