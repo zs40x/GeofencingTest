@@ -46,7 +46,7 @@
         <!--Geofence-->
         <scene sceneID="Utu-dn-vzS">
             <objects>
-                <viewController id="Sva-ba-X6g" customClass="GeofenceViewController" customModule="GeofencingTest" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="Sva-ba-X6g" customClass="GeofenceDetailViewController" customModule="GeofencingTest" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="UVG-WS-JO9"/>
                         <viewControllerLayoutGuide type="bottom" id="BvP-X5-rHt"/>
@@ -73,10 +73,10 @@
                                                     <slider opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="5" minValue="5" maxValue="1500" translatesAutoresizingMaskIntoConstraints="NO" id="3WU-Ez-Rau">
                                                         <rect key="frame" x="90" y="0.0" width="266.5" height="31"/>
                                                         <connections>
-                                                            <action selector="actionRadiusSliderValueChanged:" destination="hFP-3A-tCP" eventType="valueChanged" id="CM6-WG-cOp"/>
+                                                            <action selector="actionSliderRadiusValueChanged:" destination="Sva-ba-X6g" eventType="valueChanged" id="00A-um-gFY"/>
                                                         </connections>
                                                     </slider>
-                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" horizontalCompressionResistancePriority="751" text="5" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="wVC-9H-IMl">
+                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" horizontalCompressionResistancePriority="751" text="5" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="wVC-9H-IMl" userLabel="labelRadius">
                                                         <rect key="frame" x="364.5" y="0.0" width="10.5" height="30"/>
                                                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                         <nil key="textColor"/>
@@ -106,19 +106,20 @@
                             <constraint firstItem="VJG-Ur-8GV" firstAttribute="top" secondItem="UVG-WS-JO9" secondAttribute="bottom" id="R4X-9a-EFU"/>
                             <constraint firstItem="VJG-Ur-8GV" firstAttribute="leading" secondItem="hFP-3A-tCP" secondAttribute="leading" id="fj1-AU-iUw"/>
                         </constraints>
-                        <connections>
-                            <outlet property="labelRadius" destination="wVC-9H-IMl" id="CME-aV-KUg"/>
-                            <outlet property="segmentsMonitoringMode" destination="hRS-Vq-pUp" id="S5A-Uc-rUm"/>
-                            <outlet property="sliderRadius" destination="3WU-Ez-Rau" id="lx6-SJ-xya"/>
-                        </connections>
                     </view>
                     <navigationItem key="navigationItem" title="Geofence" id="UUY-TD-MDv">
                         <barButtonItem key="leftBarButtonItem" title="&lt; back" id="SgF-Vh-BIO">
                             <connections>
-                                <action selector="actionNavBarBack:" destination="Sva-ba-X6g" id="48a-S2-YsO"/>
+                                <action selector="actionNavigationBack:" destination="Sva-ba-X6g" id="yV9-Dq-n73"/>
                             </connections>
                         </barButtonItem>
                     </navigationItem>
+                    <connections>
+                        <outlet property="labelRadius" destination="wVC-9H-IMl" id="qmX-aN-OZu"/>
+                        <outlet property="mapView" destination="zW4-0U-zEv" id="kWW-ES-jy1"/>
+                        <outlet property="segmentsMonitoringMode" destination="hRS-Vq-pUp" id="Vt5-J1-BvB"/>
+                        <outlet property="sliderRadius" destination="3WU-Ez-Rau" id="GbD-ZX-t7d"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Qle-tb-6A9" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
