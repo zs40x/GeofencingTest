@@ -74,6 +74,7 @@
                                                         <rect key="frame" x="90" y="0.0" width="227" height="31"/>
                                                         <connections>
                                                             <action selector="actionSliderRadiusValueChanged:" destination="Sva-ba-X6g" eventType="valueChanged" id="00A-um-gFY"/>
+                                                            <action selector="actionSliderTouchUpInside:" destination="Sva-ba-X6g" eventType="touchUpInside" id="f8k-5i-KrZ"/>
                                                         </connections>
                                                     </slider>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" horizontalCompressionResistancePriority="751" text="50" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="wVC-9H-IMl" userLabel="labelRadius">

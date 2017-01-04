@@ -61,9 +61,13 @@ class GeofenceDetailViewController: UIViewController {
         
         labelRadius.text = String(Int(sliderRadius.value))
         
-        updateRadiusOverlay()
+        
     }
     
+    @IBAction func actionSliderTouchUpInside(_ sender: Any) {
+        NSLog("actionSliderTouchUpInside")
+        updateRadiusOverlay()
+    }
     
     private func updateRadiusOverlay() {
         
