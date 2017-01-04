@@ -16,7 +16,7 @@ class MapViewController: UIViewController {
     fileprivate let mapCamera = MKMapCamera()
     fileprivate var cameraZoomInitialized = false
     fileprivate var mapLongPressGestureRecognizer: UITapGestureRecognizer?
-    
+    fileprivate var coordinateForGeofenceDetailView: CLLocationCoordinate2D?
     
     @IBOutlet weak var mapView: MKMapView!
     
@@ -41,6 +41,14 @@ class MapViewController: UIViewController {
         cameraZoomInitialized = false
     }
     
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        
+        if let geofenceDetailViewController = segue.destination as? GeofenceDetailViewController {
+            geofenceDetailViewController.coordinate = coordinateForGeofenceDetailView
+        }
+    }
+    
+    
     func mapLongTap(_ gestureReconizer: UILongPressGestureRecognizer) {
         
         let location = gestureReconizer.location(in: mapView)
@@ -50,6 +58,7 @@ class MapViewController: UIViewController {
         annotation.coordinate = coordinate
         mapView.addAnnotation(annotation)
         
+        coordinateForGeofenceDetailView = coordinate
         performSegue(withIdentifier: "showGeofenceViewController", sender: self)
     }
     
