@@ -23,29 +23,9 @@ class GeofenceDetailViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        self.mapView.delegate = self
+        mapView.delegate = self
 
         initializeMapWithCoordinate()
-    }
-
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
-    }
-    
-    
-    private func initializeMapWithCoordinate() {
-        
-        guard let coordinate = coordinate else { return }
-        
-        let camera = MKMapCamera(lookingAtCenter: coordinate, fromDistance: 2000, pitch: 0, heading: 0)
-        mapView.setCamera(camera, animated: false)
-        
-        let annotation = MKPointAnnotation()
-        annotation.coordinate = coordinate
-        mapView.addAnnotation(annotation)
-        
-        updateRadiusOverlay()
     }
     
     
@@ -66,6 +46,21 @@ class GeofenceDetailViewController: UIViewController {
     
     @IBAction func actionSliderTouchUpInside(_ sender: Any) {
         NSLog("actionSliderTouchUpInside")
+        updateRadiusOverlay()
+    }
+    
+    
+    private func initializeMapWithCoordinate() {
+        
+        guard let coordinate = coordinate else { return }
+        
+        let camera = MKMapCamera(lookingAtCenter: coordinate, fromDistance: 2000, pitch: 0, heading: 0)
+        mapView.setCamera(camera, animated: false)
+        
+        let annotation = MKPointAnnotation()
+        annotation.coordinate = coordinate
+        mapView.addAnnotation(annotation)
+        
         updateRadiusOverlay()
     }
     
