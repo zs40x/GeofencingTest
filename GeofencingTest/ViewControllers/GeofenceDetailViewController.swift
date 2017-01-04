@@ -9,9 +9,10 @@
 import UIKit
 import MapKit
 
-class GeofenceDetailViewController: UIViewController {
+class GeofenceDetailViewController: UIViewController, MKMapViewDelegate {
     
     public var coordinate: CLLocationCoordinate2D?
+
     
     @IBOutlet weak var labelRadius: UILabel!
     @IBOutlet weak var sliderRadius: UISlider!
@@ -21,6 +22,8 @@ class GeofenceDetailViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        self.mapView.delegate = self
 
         initializeMapWithCoordinate()
     }
@@ -41,6 +44,9 @@ class GeofenceDetailViewController: UIViewController {
         let annotation = MKPointAnnotation()
         annotation.coordinate = coordinate
         mapView.addAnnotation(annotation)
+        
+        // sliderRadius.value
+        mapView.add(MKCircle(center: coordinate, radius: Double(100)))
     }
     
     
@@ -54,6 +60,21 @@ class GeofenceDetailViewController: UIViewController {
 
     @IBAction func actionSliderRadiusValueChanged(_ sender: Any) {
         labelRadius.text = String(Int(sliderRadius.value))
+    }
+    
+    
+    func mapView(_ mapView: MKMapView, rendererFor overlay: MKOverlay) -> MKOverlayRenderer {
+        
+        guard let circleOverlay = overlay as? MKCircle else { return MKOverlayRenderer() }
+        
+        let circleRenderer = MKCircleRenderer(circle: circleOverlay)
+        circleRenderer.fillColor = UIColor.blue.withAlphaComponent(0.0);
+        circleRenderer.strokeColor = UIColor.gray.withAlphaComponent(0.9)
+        circleRenderer.lineWidth = 2;
+        circleRenderer.lineDashPattern = [2, 5]
+        circleRenderer.alpha = 0.5;
+        
+        return circleRenderer
     }
 }
 
