@@ -37,6 +37,10 @@ class GeofenceDetailViewController: UIViewController {
         
         let camera = MKMapCamera(lookingAtCenter: coordinate, fromDistance: 2000, pitch: 0, heading: 0)
         mapView.setCamera(camera, animated: false)
+        
+        let annotation = MKPointAnnotation()
+        annotation.coordinate = coordinate
+        mapView.addAnnotation(annotation)
     }
     
     
