@@ -71,13 +71,16 @@
                                                         <nil key="highlightedColor"/>
                                                     </label>
                                                     <slider opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="5" minValue="5" maxValue="1500" translatesAutoresizingMaskIntoConstraints="NO" id="3WU-Ez-Rau">
-                                                        <rect key="frame" x="90" y="0.0" width="266.5" height="31"/>
+                                                        <rect key="frame" x="90" y="0.0" width="237" height="31"/>
                                                         <connections>
                                                             <action selector="actionSliderRadiusValueChanged:" destination="Sva-ba-X6g" eventType="valueChanged" id="00A-um-gFY"/>
                                                         </connections>
                                                     </slider>
-                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" horizontalCompressionResistancePriority="751" text="5" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="wVC-9H-IMl" userLabel="labelRadius">
-                                                        <rect key="frame" x="364.5" y="0.0" width="10.5" height="30"/>
+                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" horizontalCompressionResistancePriority="751" text="5" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="wVC-9H-IMl" userLabel="labelRadius">
+                                                        <rect key="frame" x="335" y="0.0" width="40" height="30"/>
+                                                        <constraints>
+                                                            <constraint firstAttribute="width" constant="40" id="iGz-XC-TDK"/>
+                                                        </constraints>
                                                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                         <nil key="textColor"/>
                                                         <nil key="highlightedColor"/>

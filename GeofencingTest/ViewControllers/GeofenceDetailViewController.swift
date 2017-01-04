@@ -36,7 +36,7 @@ class GeofenceDetailViewController: UIViewController {
     }
 
     @IBAction func actionSliderRadiusValueChanged(_ sender: Any) {
-        labelRadius.text = String(sliderRadius.value)
+        labelRadius.text = String(Int(sliderRadius.value))
     }
 }
 
