@@ -90,7 +90,7 @@ extension GeofenceDetailViewController: MKMapViewDelegate {
         guard let circleOverlay = overlay as? MKCircle else { return MKOverlayRenderer() }
         
         let circleRenderer = MKCircleRenderer(circle: circleOverlay)
-        circleRenderer.fillColor = UIColor.blue.withAlphaComponent(0.0);
+        circleRenderer.fillColor = UIColor.green.withAlphaComponent(0.2);
         circleRenderer.strokeColor = UIColor.gray.withAlphaComponent(0.9)
         circleRenderer.lineWidth = 2;
         circleRenderer.lineDashPattern = [2, 5]
