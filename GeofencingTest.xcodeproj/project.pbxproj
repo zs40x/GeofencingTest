@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		D40F991C1E1D744F00444561 /* UserNotifications.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D40F991B1E1D744F00444561 /* UserNotifications.framework */; };
 		D4B6C6931E192EF800C18281 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4B6C6921E192EF800C18281 /* AppDelegate.swift */; };
 		D4B6C6951E192EF800C18281 /* MapViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4B6C6941E192EF800C18281 /* MapViewController.swift */; };
 		D4B6C6981E192EF800C18281 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D4B6C6961E192EF800C18281 /* Main.storyboard */; };
@@ -29,6 +30,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		D40F991B1E1D744F00444561 /* UserNotifications.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UserNotifications.framework; path = System/Library/Frameworks/UserNotifications.framework; sourceTree = SDKROOT; };
 		D4B6C68F1E192EF800C18281 /* GeofencingTest.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = GeofencingTest.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		D4B6C6921E192EF800C18281 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		D4B6C6941E192EF800C18281 /* MapViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = MapViewController.swift; path = ViewControllers/MapViewController.swift; sourceTree = "<group>"; };
@@ -49,6 +51,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				D40F991C1E1D744F00444561 /* UserNotifications.framework in Frameworks */,
 				D4B6C6B71E192FF400C18281 /* MapKit.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -107,6 +110,7 @@
 		D4B6C6B51E192FF400C18281 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				D40F991B1E1D744F00444561 /* UserNotifications.framework */,
 				D4B6C6B61E192FF400C18281 /* MapKit.framework */,
 			);
 			name = Frameworks;
