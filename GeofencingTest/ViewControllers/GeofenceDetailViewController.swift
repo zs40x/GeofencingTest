@@ -35,7 +35,8 @@ class GeofenceDetailViewController: UIViewController {
         
         guard let coordinate = coordinate else { return }
         
-        mapView.centerCoordinate = coordinate
+        let camera = MKMapCamera(lookingAtCenter: coordinate, fromDistance: 2000, pitch: 0, heading: 0)
+        mapView.setCamera(camera, animated: false)
     }
     
     
