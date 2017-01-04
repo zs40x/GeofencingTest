@@ -45,8 +45,7 @@ class GeofenceDetailViewController: UIViewController, MKMapViewDelegate {
         annotation.coordinate = coordinate
         mapView.addAnnotation(annotation)
         
-        // sliderRadius.value
-        mapView.add(MKCircle(center: coordinate, radius: Double(100)))
+        mapView.add(MKCircle(center: coordinate, radius: Double(sliderRadius.value)))
     }
     
     
