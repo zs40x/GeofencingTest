@@ -24,6 +24,7 @@ class MapViewController: UIViewController {
         super.viewDidLoad()
         
         mapLongPressGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(mapLongTap))
+        mapLongPressGestureRecognizer?.numberOfTapsRequired = 2
         mapView.addGestureRecognizer(mapLongPressGestureRecognizer!)
         
         mapView.showsScale = true
