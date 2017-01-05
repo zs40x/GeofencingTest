@@ -8,15 +8,19 @@
 
 import UIKit
 import CoreData
+import CoreLocation
 import UserNotifications
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
 
     var window: UIWindow?
-
+    let locationManager = CLLocationManager()
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
+        
+        locationManager.delegate = self
+        locationManager.requestAlwaysAuthorization()
         
         UNUserNotificationCenter.current().requestAuthorization(options: [.alert, .sound, .badge]) {
             (granted, error) in
@@ -96,6 +100,23 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
             }
         }
     }
+}
 
+extension AppDelegate: CLLocationManagerDelegate {
+    
+    func locationManager(_ manager: CLLocationManager, didEnterRegion region: CLRegion) {
+        handleEvent(forRegion: region)
+    }
+    
+    func locationManager(_ manager: CLLocationManager, didExitRegion region: CLRegion) {
+        handleEvent(forRegion: region)
+    }
+    
+    private func handleEvent(forRegion region: CLRegion!) {
+        
+        guard let region = region as? CLCircularRegion else { return }
+        
+        NSLog("Geofence triggered: \(region.center)")
+    }
 }
 

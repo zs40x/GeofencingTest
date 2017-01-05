@@ -9,6 +9,10 @@
 import UIKit
 import MapKit
 
+protocol GeofenceDetailDelegte {
+    func saveGeofence(geofence: Geofence)
+}
+
 class GeofenceDetailViewController: UIViewController {
     
     public var coordinate: CLLocationCoordinate2D?
@@ -29,19 +33,8 @@ class GeofenceDetailViewController: UIViewController {
     }
     
     
-    @IBAction func actionNavigationBack(_ sender: Any) {
-        _ = self.navigationController?.popViewController(animated: true)
-    }
-
-    @IBAction func actionNavBarBack(_ sender: Any) {
-        
-    }
-
     @IBAction func actionSliderRadiusValueChanged(_ sender: Any) {
-        
         labelRadius.text = String(Int(sliderRadius.value))
-        
-        
     }
     
     @IBAction func actionSliderTouchUpInside(_ sender: Any) {
@@ -49,6 +42,14 @@ class GeofenceDetailViewController: UIViewController {
         updateRadiusOverlay()
     }
     
+    
+    @IBAction func actionNavigationBack(_ sender: Any) {
+        _ = self.navigationController?.popViewController(animated: true)
+    }
+    
+    @IBAction func actionNavigationSave(_ sender: Any) {
+    
+    }
     
     private func initializeMapWithCoordinate() {
         

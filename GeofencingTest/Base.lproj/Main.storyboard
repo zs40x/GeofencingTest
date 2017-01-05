@@ -112,9 +112,14 @@
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" title="Geofence" id="UUY-TD-MDv">
-                        <barButtonItem key="leftBarButtonItem" title="&lt; back" id="SgF-Vh-BIO">
+                        <barButtonItem key="leftBarButtonItem" title="Back" id="SgF-Vh-BIO">
                             <connections>
                                 <action selector="actionNavigationBack:" destination="Sva-ba-X6g" id="yV9-Dq-n73"/>
+                            </connections>
+                        </barButtonItem>
+                        <barButtonItem key="rightBarButtonItem" title="Save" id="h4a-QK-8Pt">
+                            <connections>
+                                <action selector="actionNavigationSave:" destination="Sva-ba-X6g" id="etU-SJ-JgN"/>
                             </connections>
                         </barButtonItem>
                     </navigationItem>
