@@ -16,6 +16,8 @@ protocol GeofenceDetailDelegte {
 class GeofenceDetailViewController: UIViewController {
     
     public var coordinate: CLLocationCoordinate2D?
+    public var geofenceDetailDelegate: GeofenceDetailDelegte?
+    
     private var circle: MKCircle?
     
     @IBOutlet weak var labelRadius: UILabel!
@@ -48,7 +50,21 @@ class GeofenceDetailViewController: UIViewController {
     }
     
     @IBAction func actionNavigationSave(_ sender: Any) {
-    
+        
+        guard let coordinate = coordinate else { return }
+        
+        let monitoringMode: GeofenceMonitoringMode
+            = (segmentsMonitoringMode.selectedSegmentIndex == 0) ? .Entering : .Exiting
+        
+        let geofence =
+            Geofence(
+                    coordinate: coordinate,
+                    radius: Int(sliderRadius.value),
+                    monitoringMode: monitoringMode
+                )
+        geofenceDetailDelegate?.saveGeofence(geofence: geofence)
+        
+        _ = self.navigationController?.popViewController(animated: true)
     }
     
     private func initializeMapWithCoordinate() {
