@@ -30,7 +30,6 @@ class MapViewController: UIViewController {
         mapView.showsScale = true
         mapView.showsCompass = true
         mapView.delegate = self
-        
         mapCamera.altitude = 1000
         
         locationManager.delegate = self
@@ -75,15 +74,25 @@ class MapViewController: UIViewController {
         
         let geofence = Geofence(json: geofenceJsonString)
         
+        
         NSLog("Loaded geofence: \(geofence)")
     }
 }
 
 extension MapViewController: MKMapViewDelegate {
     
-    func mapView(_ mapView: MKMapView, didUpdate userLocation: MKUserLocation) {
+    func mapView(_ mapView: MKMapView, rendererFor overlay: MKOverlay) -> MKOverlayRenderer {
         
-        NSLog("Map is now centered on \(userLocation)")
+        guard let circleOverlay = overlay as? MKCircle else { return MKOverlayRenderer() }
+        
+        let circleRenderer = MKCircleRenderer(circle: circleOverlay)
+        circleRenderer.fillColor = UIColor.green.withAlphaComponent(0.2);
+        circleRenderer.strokeColor = UIColor.gray.withAlphaComponent(0.9)
+        circleRenderer.lineWidth = 2;
+        circleRenderer.lineDashPattern = [2, 5]
+        circleRenderer.alpha = 0.5;
+        
+        return circleRenderer
     }
 }
 
