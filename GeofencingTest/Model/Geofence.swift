@@ -47,7 +47,7 @@ public struct Geofence {
                 "latitude" : String(coordinate.latitude),
                 "longitude" : String(coordinate.longitude),
                 "radius" : String(radius),
-                "monitoringMonde" : String(monitoringMode.rawValue)
+                "monitoringMode" : String(monitoringMode.rawValue)
             ]
         
         if let data = try? JSONSerialization.data(withJSONObject: jsonDict, options: []),

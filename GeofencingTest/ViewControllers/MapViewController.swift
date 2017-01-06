@@ -36,6 +36,8 @@ class MapViewController: UIViewController {
         locationManager.delegate = self
         locationManager.requestAlwaysAuthorization()
         locationManager.startUpdatingLocation()
+        
+        loadAndDisplayExistingGeofence()
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -64,6 +66,17 @@ class MapViewController: UIViewController {
         performSegue(withIdentifier: "showGeofenceViewController", sender: self)
     }
     
+    private func loadAndDisplayExistingGeofence() {
+        
+        guard let geofenceJsonString = UserDefaults.standard.value(forKey: "geofence") as? String else {
+            NSLog("No geofeonce in userDefaults found")
+            return
+        }
+        
+        let geofence = Geofence(json: geofenceJsonString)
+        
+        NSLog("Loaded geofence: \(geofence)")
+    }
 }
 
 extension MapViewController: MKMapViewDelegate {
