@@ -62,6 +62,7 @@ class GeofenceDetailViewController: UIViewController {
                     radius: Int(sliderRadius.value),
                     monitoringMode: monitoringMode
                 )
+        
         geofenceDetailDelegate?.saveGeofence(geofence: geofence)
         
         _ = self.navigationController?.popViewController(animated: true)

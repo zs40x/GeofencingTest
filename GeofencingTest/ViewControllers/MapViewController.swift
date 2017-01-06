@@ -46,6 +46,7 @@ class MapViewController: UIViewController {
         
         if let geofenceDetailViewController = segue.destination as? GeofenceDetailViewController {
             geofenceDetailViewController.coordinate = coordinateForGeofenceDetailView
+            geofenceDetailViewController.geofenceDetailDelegate = self
         }
     }
     
@@ -101,5 +102,12 @@ extension MapViewController: CLLocationManagerDelegate {
         
             self.cameraZoomInitialized = true
         }
+    }
+}
+
+extension MapViewController: GeofenceDetailDelegte {
+    
+    func saveGeofence(geofence: Geofence) {
+        NSLog("MapViewController-GeofenceDetailDelegate.saveGeofence(\(geofence))")
     }
 }
