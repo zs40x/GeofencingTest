@@ -109,5 +109,7 @@ extension MapViewController: GeofenceDetailDelegte {
     
     func saveGeofence(geofence: Geofence) {
         NSLog("MapViewController-GeofenceDetailDelegate.saveGeofence(\(geofence))")
+        
+            UserDefaults.standard.set(geofence.jsonRepresentation, forKey: "geofence")
     }
 }
