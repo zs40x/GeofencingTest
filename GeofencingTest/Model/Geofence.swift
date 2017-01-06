@@ -9,8 +9,8 @@
 import Foundation
 import CoreLocation
 
-public enum GeofenceMonitoringMode {
-    case Entering
+public enum GeofenceMonitoringMode: Int {
+    case Entering = 0
     case Exiting
 }
 
@@ -36,10 +36,10 @@ public struct Geofence {
     var jsonRepresentation : String {
         let jsonDict =
             [
-                "latitude" : coordinate.latitude,
-                "longitude" : coordinate.longitude,
-                "radius" : radius,
-                "monitoringMonde" : monitoringMode.rawValue
+                "latitude" : String(coordinate.latitude),
+                "longitude" : String(coordinate.longitude),
+                "radius" : String(radius),
+                "monitoringMonde" : String(monitoringMode.rawValue)
             ]
         
         if let data = try? JSONSerialization.data(withJSONObject: jsonDict, options: []),
