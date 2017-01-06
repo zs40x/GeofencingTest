@@ -72,10 +72,13 @@ class MapViewController: UIViewController {
             return
         }
         
-        let geofence = Geofence(json: geofenceJsonString)
+        guard let geofence = Geofence(json: geofenceJsonString) else { return }
         
-        
-        NSLog("Loaded geofence: \(geofence)")
+        let annotation = MKPointAnnotation()
+        annotation.coordinate = geofence.coordinate
+        mapView.addAnnotation(annotation)
+
+        mapView.add(MKCircle(center: geofence.coordinate, radius: Double(geofence.radius)))
     }
 }
 
