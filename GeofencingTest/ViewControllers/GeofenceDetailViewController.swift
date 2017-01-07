@@ -53,12 +53,18 @@ class GeofenceDetailViewController: UIViewController {
     @IBAction func actionNavigationSave(_ sender: Any) {
         
         guard let coordinate = coordinate else { return }
+        guard let identifier = identifierTextField.text else { return  }
+        guard identifier.characters.count > 0 else {
+            showAlertDialog(title: "Adding geofence failed", errorMessage: "Enter an identifier")
+            return
+        }
         
         let monitoringMode: GeofenceMonitoringMode
             = (segmentsMonitoringMode.selectedSegmentIndex == 0) ? .Entering : .Exiting
         
         let geofence =
             Geofence(
+                    identifier: identifier,
                     coordinate: coordinate,
                     radius: Int(sliderRadius.value),
                     monitoringMode: monitoringMode

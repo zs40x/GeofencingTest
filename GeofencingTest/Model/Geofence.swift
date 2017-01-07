@@ -15,11 +15,13 @@ public enum GeofenceMonitoringMode: Int {
 }
 
 public struct Geofence {
+    let identifier: String
     let coordinate: CLLocationCoordinate2D
     let radius: Int
     let monitoringMode: GeofenceMonitoringMode
     
-    init(coordinate: CLLocationCoordinate2D, radius: Int, monitoringMode: GeofenceMonitoringMode) {
+    init(identifier: String, coordinate: CLLocationCoordinate2D, radius: Int, monitoringMode: GeofenceMonitoringMode) {
+        self.identifier = identifier
         self.coordinate = coordinate
         self.radius = radius
         self.monitoringMode = monitoringMode
@@ -28,6 +30,7 @@ public struct Geofence {
     init?(json : String) {
         guard let data = json.data(using: .utf8),
                 let jsonDict = try? JSONSerialization.jsonObject(with: data, options: []) as? [String:String],
+                let identifier = jsonDict?["identifier"],
                 let longiture = jsonDict?["longitude"],
                 let latitude = jsonDict?["latitude"],
                 let radius = jsonDict?["radius"],
@@ -35,6 +38,7 @@ public struct Geofence {
             else { return nil }
         
         self.init(
+                identifier: identifier,
                 coordinate: CLLocationCoordinate2D(latitude: Double(latitude) ?? 0, longitude: Double(longiture) ?? 0),
                 radius: Int(radius) ?? 0,
                 monitoringMode: monitoringMode == "0" ? .Entering : .Exiting
@@ -44,6 +48,7 @@ public struct Geofence {
     var jsonRepresentation : String {
         let jsonDict =
             [
+                "identifier": identifier,
                 "latitude" : String(coordinate.latitude),
                 "longitude" : String(coordinate.longitude),
                 "radius" : String(radius),
