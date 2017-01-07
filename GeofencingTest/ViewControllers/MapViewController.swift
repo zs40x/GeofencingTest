@@ -79,6 +79,37 @@ class MapViewController: UIViewController {
         mapView.addAnnotation(annotation)
 
         mapView.add(MKCircle(center: geofence.coordinate, radius: Double(geofence.radius)))
+        
+        startGeofenceMonitoring()
+    }
+    
+    private func startGeofenceMonitoring() {
+        func startMonitoring(geofence: Geofence) {
+            
+            guard CLLocationManager.isMonitoringAvailable(for: CLCircularRegion.self) else {
+                NSLog("Geofencing is not supported on this device!")
+                return
+            }
+            
+            guard CLLocationManager.authorizationStatus() == .authorizedAlways else {
+                NSLog("Geofence monitoring not possible if the app has no access to the location")
+                return
+            }
+            
+            locationManager.startMonitoring(for: makeRegion(geofence: geofence))
+            
+            NSLog("Now monitoring region for geofence: \(geofence)")
+        }
+    }
+    
+    private func makeRegion(geofence: Geofence) -> CLCircularRegion {
+        
+        let region = CLCircularRegion(center: geofence.coordinate, radius: Double(geofence.radius), identifier: "Test")
+        
+        region.notifyOnEntry = (geofence.monitoringMode == .Entering)
+        region.notifyOnExit = !region.notifyOnEntry
+        
+        return region
     }
 }
 
