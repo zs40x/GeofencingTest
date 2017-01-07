@@ -34,6 +34,7 @@
 /* Begin PBXFileReference section */
 		D40BCB7E1E1E02F50005350B /* Geofence.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Geofence.swift; path = Model/Geofence.swift; sourceTree = "<group>"; };
 		D40BCB841E216EC50005350B /* UIViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = UIViewController.swift; path = Extensions/UIViewController.swift; sourceTree = "<group>"; };
+		D40BCB871E217B020005350B /* Cuxhaven.gpx */ = {isa = PBXFileReference; lastKnownFileType = text.xml; name = Cuxhaven.gpx; path = GPX/Cuxhaven.gpx; sourceTree = "<group>"; };
 		D40F991B1E1D744F00444561 /* UserNotifications.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UserNotifications.framework; path = System/Library/Frameworks/UserNotifications.framework; sourceTree = SDKROOT; };
 		D4B6C68F1E192EF800C18281 /* GeofencingTest.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = GeofencingTest.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		D4B6C6921E192EF800C18281 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -86,6 +87,14 @@
 			name = Extensions;
 			sourceTree = "<group>";
 		};
+		D40BCB861E217AEB0005350B /* GPX */ = {
+			isa = PBXGroup;
+			children = (
+				D40BCB871E217B020005350B /* Cuxhaven.gpx */,
+			);
+			name = GPX;
+			sourceTree = "<group>";
+		};
 		D4B6C6861E192EF800C18281 = {
 			isa = PBXGroup;
 			children = (
@@ -108,6 +117,7 @@
 		D4B6C6911E192EF800C18281 /* GeofencingTest */ = {
 			isa = PBXGroup;
 			children = (
+				D40BCB861E217AEB0005350B /* GPX */,
 				D40BCB831E216EB40005350B /* Extensions */,
 				D4B6C6921E192EF800C18281 /* AppDelegate.swift */,
 				D40BCB801E1E02FB0005350B /* Model */,
