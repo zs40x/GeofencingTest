@@ -108,7 +108,7 @@ class MapViewController: UIViewController {
     
     private func makeRegion(geofence: Geofence) -> CLCircularRegion {
         
-        let region = CLCircularRegion(center: geofence.coordinate, radius: Double(geofence.radius), identifier: "Test")
+        let region = CLCircularRegion(center: geofence.coordinate, radius: Double(geofence.radius), identifier: geofence.identifier)
         
         region.notifyOnEntry = (geofence.monitoringMode == .Entering)
         region.notifyOnExit = !region.notifyOnEntry
