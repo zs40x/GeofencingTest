@@ -146,7 +146,6 @@ extension MapViewController: CLLocationManagerDelegate {
         DispatchQueue.main.async {
             [unowned self, coordinate = lastLocation.coordinate] in
          
-            
             if !self.cameraZoomInitialized {
                 self.mapView.setCamera(self.mapCamera, animated: false)
             }
@@ -161,8 +160,9 @@ extension MapViewController: CLLocationManagerDelegate {
 extension MapViewController: GeofenceDetailDelegte {
     
     func saveGeofence(geofence: Geofence) {
+        
         NSLog("MapViewController-GeofenceDetailDelegate.saveGeofence(\(geofence))")
         
-            UserDefaults.standard.set(geofence.jsonRepresentation, forKey: "geofence")
+        UserDefaults.standard.set(geofence.jsonRepresentation, forKey: "geofence")
     }
 }
