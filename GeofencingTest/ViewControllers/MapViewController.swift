@@ -31,7 +31,7 @@ class MapViewController: UIViewController {
         mapView.showsScale = true
         mapView.showsCompass = true
         mapView.delegate = self
-        mapCamera.altitude = 1000
+        mapCamera.altitude = 3000
         
         locationManager.delegate = self
         locationManager.requestAlwaysAuthorization()
