@@ -24,7 +24,10 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         
         UNUserNotificationCenter.current().requestAuthorization(options: [.alert, .sound, .badge]) {
             (granted, error) in
-            NSLog("Failed to request authorization for localNotifications")
+            
+            guard let error = error else { return }
+            
+            NSLog("Failed to request authorization for localNotifications: \(error.localizedDescription)")
         }
         
         UNUserNotificationCenter.current().removeAllPendingNotificationRequests()
