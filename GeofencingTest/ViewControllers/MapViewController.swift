@@ -17,8 +17,10 @@ class MapViewController: UIViewController {
     fileprivate var cameraZoomInitialized = false
     fileprivate var mapLongPressGestureRecognizer: UITapGestureRecognizer?
     fileprivate var coordinateForGeofenceDetailView: CLLocationCoordinate2D?
+    fileprivate var isTrackingLocation = true
     
     @IBOutlet weak var mapView: MKMapView!
+    @IBOutlet weak var buttonTrackLocation: UIBarButtonItem!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -48,6 +50,11 @@ class MapViewController: UIViewController {
             geofenceDetailViewController.coordinate = coordinateForGeofenceDetailView
             geofenceDetailViewController.geofenceDetailDelegate = self
         }
+    }
+    
+    @IBAction func actionTrackLocation(_ sender: Any) {
+    
+        isTrackingLocation = isTrackingLocation ? false : true
     }
     
     
@@ -142,6 +149,8 @@ extension MapViewController: CLLocationManagerDelegate {
     func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
         
         guard let lastLocation = locations.last else { return }
+        
+        guard isTrackingLocation else { return }
         
         DispatchQueue.main.async {
             [unowned self, coordinate = lastLocation.coordinate] in
