@@ -120,6 +120,30 @@ extension AppDelegate: CLLocationManagerDelegate {
         guard let region = region as? CLCircularRegion else { return }
         
         NSLog("Geofence triggered: \(region.center)")
+        
+        // Show an alert if application is active
+        if UIApplication.shared.applicationState == .active {
+            window?.rootViewController?.showAlertDialog(title: nil, errorMessage: region.identifier)
+        } else {
+            
+            let content = UNMutableNotificationContent()
+            content.title = "Geofence triggered"
+            content.body = "\(region.identifier), \(region.center), \(region.radius)"
+            content.sound = UNNotificationSound.default()
+            
+            let request =
+                UNNotificationRequest(
+                    identifier: "geofenceTriggered",
+                    content: content,
+                    trigger: nil)
+            
+            UNUserNotificationCenter.current().removeAllPendingNotificationRequests()
+            UNUserNotificationCenter.current().add(request) {(error) in
+                if let error = error {
+                    NSLog("Failed adding notification: \(error)")
+                }
+            }
+        }
     }
 }
 
