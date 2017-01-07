@@ -20,6 +20,7 @@ class GeofenceDetailViewController: UIViewController {
     
     private var circle: MKCircle?
     
+    @IBOutlet weak var identifierTextField: UITextField!
     @IBOutlet weak var labelRadius: UILabel!
     @IBOutlet weak var sliderRadius: UISlider!
     @IBOutlet weak var segmentsMonitoringMode: UISegmentedControl!

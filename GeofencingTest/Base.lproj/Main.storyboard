@@ -66,10 +66,16 @@
                                 <rect key="frame" x="5" y="69" width="365" height="593"/>
                                 <subviews>
                                     <stackView opaque="NO" contentMode="scaleToFill" verticalCompressionResistancePriority="752" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="l1n-f0-pNM">
-                                        <rect key="frame" x="0.0" y="0.0" width="365" height="58"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="365" height="88"/>
                                         <subviews>
-                                            <stackView opaque="NO" contentMode="scaleToFill" verticalHuggingPriority="251" verticalCompressionResistancePriority="751" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="lOI-fk-WXm">
+                                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Identifier" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Nem-d8-Hsm">
                                                 <rect key="frame" x="0.0" y="0.0" width="365" height="30"/>
+                                                <nil key="textColor"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                                <textInputTraits key="textInputTraits"/>
+                                            </textField>
+                                            <stackView opaque="NO" contentMode="scaleToFill" verticalHuggingPriority="251" verticalCompressionResistancePriority="751" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="lOI-fk-WXm">
+                                                <rect key="frame" x="0.0" y="30" width="365" height="30"/>
                                                 <subviews>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" horizontalCompressionResistancePriority="751" text="Radius (m)" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="bOp-Ix-3hz">
                                                         <rect key="frame" x="0.0" y="0.0" width="82" height="30"/>
@@ -96,7 +102,7 @@
                                                 </subviews>
                                             </stackView>
                                             <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="hRS-Vq-pUp">
-                                                <rect key="frame" x="0.0" y="30" width="365" height="29"/>
+                                                <rect key="frame" x="0.0" y="60" width="365" height="29"/>
                                                 <segments>
                                                     <segment title="Enter"/>
                                                     <segment title="Exit"/>
@@ -105,7 +111,7 @@
                                         </subviews>
                                     </stackView>
                                     <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" verticalCompressionResistancePriority="749" mapType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="zW4-0U-zEv">
-                                        <rect key="frame" x="0.0" y="62" width="365" height="531"/>
+                                        <rect key="frame" x="0.0" y="92" width="365" height="501"/>
                                     </mapView>
                                 </subviews>
                             </stackView>
@@ -131,6 +137,7 @@
                         </barButtonItem>
                     </navigationItem>
                     <connections>
+                        <outlet property="identifierTextField" destination="Nem-d8-Hsm" id="sQP-dt-1Ck"/>
                         <outlet property="labelRadius" destination="wVC-9H-IMl" id="qmX-aN-OZu"/>
                         <outlet property="mapView" destination="zW4-0U-zEv" id="kWW-ES-jy1"/>
                         <outlet property="segmentsMonitoringMode" destination="hRS-Vq-pUp" id="Vt5-J1-BvB"/>
