@@ -137,7 +137,7 @@ extension AppDelegate: CLLocationManagerDelegate {
                     content: content,
                     trigger: nil)
             
-            UNUserNotificationCenter.current().removeAllPendingNotificationRequests()
+            //UNUserNotificationCenter.current().removeAllPendingNotificationRequests()
             UNUserNotificationCenter.current().add(request) {(error) in
                 if let error = error {
                     NSLog("Failed adding notification: \(error)")
