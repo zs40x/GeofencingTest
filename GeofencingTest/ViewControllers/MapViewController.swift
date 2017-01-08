@@ -19,7 +19,7 @@ class MapViewController: UIViewController {
     fileprivate var coordinateForGeofenceDetailView: CLLocationCoordinate2D?
     
     fileprivate var isTrackingLocation = true
-    private var geofences: [Geofence]?
+    fileprivate var geofences: [Geofence]?
     
     @IBOutlet weak var mapView: MKMapView!
     @IBOutlet weak var buttonTrackLocation: UIBarButtonItem!
@@ -40,6 +40,7 @@ class MapViewController: UIViewController {
         locationManager.startUpdatingLocation()
         
         loadAndDisplayGeofences()
+        displayGeofences()
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -75,30 +76,34 @@ class MapViewController: UIViewController {
     
     private func loadAndDisplayGeofences() {
         
-        guard let geofenceJsonString = UserDefaults.standard.value(forKey: "geofences") as? [String] else {
+        guard let geofenceJsonStringArray = UserDefaults.standard.value(forKey: "geofences") as? [String] else {
             NSLog("No geofeonce in userDefaults found")
             return
         }
-        return
-        /*guard let geofencesJson = geofenceJsonString.data(using: .utf8),
-              let geofencesJsonArray = try? JSONSerialization.jsonObject(with: geofencesJson, options: []) as? [String]
-            else {
-                NSLog("Failed loading geofences")
-                return
+        
+        geofences = geofenceJsonStringArray.flatMap({ Geofence(json: $0) })
+    }
+    
+    private func displayGeofences() {
+        
+        guard let geofences = self.geofences else { return }
+        
+        geofences.forEach { (geofence) in
+            let annotation = MKPointAnnotation()
+            annotation.coordinate = geofence.coordinate
+            mapView.addAnnotation(annotation)
+            
+            mapView.add(MKCircle(center: geofence.coordinate, radius: Double(geofence.radius)))
         }
-        return
-        let geofences =
-            geofencesJsonArray.map { (geofenceJson) in Geofence(json: geofenceJson) }
+    }
+    
+    private func monitorGeofences() {
         
-        guard let geofence = Geofence(json: geofenceJsonString) else { return }
+        guard let geofences = self.geofences else { return }
         
-        let annotation = MKPointAnnotation()
-        annotation.coordinate = geofence.coordinate
-        mapView.addAnnotation(annotation)
-
-        mapView.add(MKCircle(center: geofence.coordinate, radius: Double(geofence.radius)))
-        
-        startGeofenceMonitoring(geofence)*/
+        geofences.forEach { (geofence) in
+            startGeofenceMonitoring(geofence)
+        }
     }
     
     func startGeofenceMonitoring(_ geofence: Geofence) {
@@ -184,8 +189,16 @@ extension MapViewController: GeofenceDetailDelegte {
         
         NSLog("MapViewController-GeofenceDetailDelegate.saveGeofence(\(geofence))")
         
-        let geofencesJson = [geofence.jsonRepresentation]
+        var geofences = [Geofence]()
         
-        UserDefaults.standard.set(geofencesJson, forKey: "geofences")
+        if let existingGeofences = self.geofences {
+            geofences.append(contentsOf: existingGeofences)
+        }
+        
+        geofences.append(geofence)
+        
+        let jsonStringArray = geofences.map { $0.jsonRepresentation }
+        
+        UserDefaults.standard.set(jsonStringArray, forKey: "geofences")
     }
 }
