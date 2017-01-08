@@ -27,20 +27,12 @@ class MapViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        mapLongPressGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(mapLongTap))
-        mapView.addGestureRecognizer(mapLongPressGestureRecognizer!)
-        
-        mapView.showsScale = true
-        mapView.showsCompass = true
-        mapView.delegate = self
-        mapCamera.altitude = 3000
-        
-        locationManager.delegate = self
-        locationManager.requestAlwaysAuthorization()
-        locationManager.startUpdatingLocation()
+        initializeMapView()
+        initiaizeLocationManager()
         
         loadAndDisplayGeofences()
         displayGeofences()
+        monitorGeofences()
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -72,6 +64,24 @@ class MapViewController: UIViewController {
         
         coordinateForGeofenceDetailView = coordinate
         performSegue(withIdentifier: "showGeofenceViewController", sender: self)
+    }
+    
+    private func initializeMapView() {
+        
+        mapLongPressGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(mapLongTap))
+        mapView.addGestureRecognizer(mapLongPressGestureRecognizer!)
+        
+        mapView.showsScale = true
+        mapView.showsCompass = true
+        mapView.delegate = self
+        mapCamera.altitude = 3000
+    }
+    
+    private func initiaizeLocationManager() {
+        
+        locationManager.delegate = self
+        locationManager.requestAlwaysAuthorization()
+        locationManager.startUpdatingLocation()
     }
     
     private func loadAndDisplayGeofences() {
