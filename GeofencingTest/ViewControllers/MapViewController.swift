@@ -17,7 +17,9 @@ class MapViewController: UIViewController {
     fileprivate var cameraZoomInitialized = false
     fileprivate var mapLongPressGestureRecognizer: UITapGestureRecognizer?
     fileprivate var coordinateForGeofenceDetailView: CLLocationCoordinate2D?
+    
     fileprivate var isTrackingLocation = true
+    private var geofences: [Geofence]?
     
     @IBOutlet weak var mapView: MKMapView!
     @IBOutlet weak var buttonTrackLocation: UIBarButtonItem!
@@ -37,7 +39,7 @@ class MapViewController: UIViewController {
         locationManager.requestAlwaysAuthorization()
         locationManager.startUpdatingLocation()
         
-        loadAndDisplayExistingGeofence()
+        loadAndDisplayGeofences()
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -71,12 +73,22 @@ class MapViewController: UIViewController {
         performSegue(withIdentifier: "showGeofenceViewController", sender: self)
     }
     
-    private func loadAndDisplayExistingGeofence() {
+    private func loadAndDisplayGeofences() {
         
-        guard let geofenceJsonString = UserDefaults.standard.value(forKey: "geofence") as? String else {
+        guard let geofenceJsonString = UserDefaults.standard.value(forKey: "geofences") as? [String] else {
             NSLog("No geofeonce in userDefaults found")
             return
         }
+        return
+        /*guard let geofencesJson = geofenceJsonString.data(using: .utf8),
+              let geofencesJsonArray = try? JSONSerialization.jsonObject(with: geofencesJson, options: []) as? [String]
+            else {
+                NSLog("Failed loading geofences")
+                return
+        }
+        return
+        let geofences =
+            geofencesJsonArray.map { (geofenceJson) in Geofence(json: geofenceJson) }
         
         guard let geofence = Geofence(json: geofenceJsonString) else { return }
         
@@ -86,7 +98,7 @@ class MapViewController: UIViewController {
 
         mapView.add(MKCircle(center: geofence.coordinate, radius: Double(geofence.radius)))
         
-        startGeofenceMonitoring(geofence)
+        startGeofenceMonitoring(geofence)*/
     }
     
     func startGeofenceMonitoring(_ geofence: Geofence) {
@@ -172,6 +184,8 @@ extension MapViewController: GeofenceDetailDelegte {
         
         NSLog("MapViewController-GeofenceDetailDelegate.saveGeofence(\(geofence))")
         
-        UserDefaults.standard.set(geofence.jsonRepresentation, forKey: "geofence")
+        let geofencesJson = [geofence.jsonRepresentation]
+        
+        UserDefaults.standard.set(geofencesJson, forKey: "geofences")
     }
 }
