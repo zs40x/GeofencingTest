@@ -199,15 +199,13 @@ extension MapViewController: GeofenceDetailDelegte {
         
         NSLog("MapViewController-GeofenceDetailDelegate.saveGeofence(\(geofence))")
         
-        var geofences = [Geofence]()
-        
-        if let existingGeofences = self.geofences {
-            geofences.append(contentsOf: existingGeofences)
+        if geofences == nil {
+            geofences = [Geofence]()
         }
         
-        geofences.append(geofence)
+        geofences!.append(geofence)
         
-        let jsonStringArray = geofences.map { $0.jsonRepresentation }
+        let jsonStringArray = geofences!.map { $0.jsonRepresentation }
         
         UserDefaults.standard.set(jsonStringArray, forKey: "geofences")
     }

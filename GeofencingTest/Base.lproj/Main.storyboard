@@ -9,7 +9,7 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--Title-->
+        <!--Geofencing-->
         <scene sceneID="tne-QT-ifu">
             <objects>
                 <viewController id="BYZ-38-t0r" customClass="MapViewController" customModule="GeofencingTest" customModuleProvider="target" sceneMemberID="viewController">
@@ -33,7 +33,7 @@
                             <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="oxS-GO-dHo" secondAttribute="bottom" id="wgg-jk-Bbg"/>
                         </constraints>
                     </view>
-                    <navigationItem key="navigationItem" title="Title" id="gon-jG-lYH">
+                    <navigationItem key="navigationItem" title="Geofencing" id="gon-jG-lYH">
                         <barButtonItem key="rightBarButtonItem" title="Track location" id="Cq7-o5-Md6">
                             <connections>
                                 <action selector="actionTrackLocation:" destination="BYZ-38-t0r" id="dM5-DK-7fq"/>
