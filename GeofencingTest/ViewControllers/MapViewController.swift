@@ -206,6 +206,14 @@ extension MapViewController: CLLocationManagerDelegate {
             self.cameraZoomInitialized = true
         }
     }
+    
+    func mapView(_ mapView: MKMapView, didSelect view: MKAnnotationView) {
+        
+        guard let annotation = view.annotation else { return }
+        
+        isTrackingLocation = false
+        mapView.setCenter(annotation.coordinate, animated: true)
+    }
 }
 
 extension MapViewController: GeofenceDetailDelegte {
