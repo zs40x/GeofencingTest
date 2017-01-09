@@ -61,3 +61,28 @@ public struct Geofence {
         } else { return "" }
     }
 }
+
+extension Geofence: Equatable { }
+
+public func ==(rhs: Geofence, lhs: Geofence) -> Bool {
+    
+    guard rhs.identifier == rhs.identifier
+            && rhs.coordinate.latitude == lhs.coordinate.latitude
+            && rhs.coordinate.longitude == lhs.coordinate.longitude
+            && rhs.radius == lhs.radius
+            && rhs.monitoringMode == lhs.monitoringMode
+        else { return false }
+    
+    return true
+}
+
+extension Geofence: Hashable {
+    
+    public var hashValue: Int {
+        return identifier.hashValue ^
+                coordinate.latitude.hashValue ^
+                coordinate.longitude.hashValue ^
+                radius.hashValue ^
+                monitoringMode.hashValue
+    }
+}

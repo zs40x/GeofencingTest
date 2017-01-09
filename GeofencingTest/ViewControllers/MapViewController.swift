@@ -20,6 +20,7 @@ class MapViewController: UIViewController {
     
     fileprivate var isTrackingLocation = true
     fileprivate var geofences: [Geofence]?
+    fileprivate var geofenceOverlayCircles = [Geofence:(MKAnnotation,MKCircle)]()
     
     @IBOutlet weak var mapView: MKMapView!
     @IBOutlet weak var buttonTrackLocation: UIBarButtonItem!
