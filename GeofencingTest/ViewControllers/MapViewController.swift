@@ -57,10 +57,6 @@ class MapViewController: UIViewController {
         let location = gestureReconizer.location(in: mapView)
         let coordinate = mapView.convert(location, toCoordinateFrom: mapView)
         
-        let annotation = MKPointAnnotation()
-        annotation.coordinate = coordinate
-        mapView.addAnnotation(annotation)
-        
         coordinateForGeofenceDetailView = coordinate
         performSegue(withIdentifier: "showGeofenceViewController", sender: self)
     }
