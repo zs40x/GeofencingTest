@@ -20,7 +20,7 @@ class MapViewController: UIViewController {
     
     fileprivate var isTrackingLocation = true
     fileprivate var geofences: [Geofence]?
-    fileprivate var geofenceOverlayCircles = [Geofence:(MKAnnotation,MKCircle)]()
+    fileprivate var geofencesWithOverlays = [Geofence:(MKAnnotation,MKCircle)]()
     
     @IBOutlet weak var mapView: MKMapView!
     @IBOutlet weak var buttonTrackLocation: UIBarButtonItem!
@@ -31,9 +31,7 @@ class MapViewController: UIViewController {
         initializeMapView()
         initiaizeLocationManager()
         
-        loadAndDisplayGeofences()
-        displayGeofences()
-        monitorGeofences()
+        loadRegisterAndDisplayGeofences()
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -78,6 +76,12 @@ class MapViewController: UIViewController {
         mapCamera.altitude = 3000
     }
     
+    fileprivate func loadRegisterAndDisplayGeofences() {
+        loadGeofences()
+        displayGeofences()
+        monitorGeofences()
+    }
+    
     private func initiaizeLocationManager() {
         
         locationManager.delegate = self
@@ -85,7 +89,7 @@ class MapViewController: UIViewController {
         locationManager.startUpdatingLocation()
     }
     
-    private func loadAndDisplayGeofences() {
+    fileprivate func loadGeofences() {
         
         guard let geofenceJsonStringArray = UserDefaults.standard.value(forKey: "geofences") as? [String] else {
             NSLog("No geofeonce in userDefaults found")
@@ -99,12 +103,22 @@ class MapViewController: UIViewController {
         
         guard let geofences = self.geofences else { return }
         
+        geofencesWithOverlays.forEach { (key: Geofence, value: (pin: MKAnnotation, radiusCircle: MKCircle)) in
+            mapView.removeAnnotation(value.pin)
+            mapView.remove(value.radiusCircle)
+        }
+        geofencesWithOverlays.removeAll()
+        
         geofences.forEach { (geofence) in
-            let annotation = MKPointAnnotation()
-            annotation.coordinate = geofence.coordinate
-            mapView.addAnnotation(annotation)
             
-            mapView.add(MKCircle(center: geofence.coordinate, radius: Double(geofence.radius)))
+            let pin = MKPointAnnotation()
+            pin.coordinate = geofence.coordinate
+            mapView.addAnnotation(pin)
+            
+            let radiusCircle = MKCircle(center: geofence.coordinate, radius: Double(geofence.radius))
+            mapView.add(radiusCircle)
+            
+            geofencesWithOverlays[geofence] = (pin, radiusCircle)
         }
     }
     
@@ -200,6 +214,8 @@ extension MapViewController: GeofenceDetailDelegte {
         
         NSLog("MapViewController-GeofenceDetailDelegate.saveGeofence(\(geofence))")
         
+        loadGeofences()
+        
         if geofences == nil {
             geofences = [Geofence]()
         }
@@ -209,5 +225,7 @@ extension MapViewController: GeofenceDetailDelegte {
         let jsonStringArray = geofences!.map { $0.jsonRepresentation }
         
         UserDefaults.standard.set(jsonStringArray, forKey: "geofences")
+        
+        loadRegisterAndDisplayGeofences()
     }
 }
