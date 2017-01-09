@@ -15,7 +15,7 @@ class MapViewController: UIViewController {
     fileprivate let locationManager = CLLocationManager()
     fileprivate let mapCamera = MKMapCamera()
     fileprivate var cameraZoomInitialized = false
-    fileprivate var mapLongPressGestureRecognizer: UITapGestureRecognizer?
+    fileprivate var mapLongPressGestureRecognizer: UILongPressGestureRecognizer?
     fileprivate var coordinateForGeofenceDetailView: CLLocationCoordinate2D?
     
     fileprivate var isTrackingLocation = true
@@ -54,6 +54,8 @@ class MapViewController: UIViewController {
     
     func mapLongTap(_ gestureReconizer: UILongPressGestureRecognizer) {
         
+        guard gestureReconizer.state == .ended else { return }
+        
         let location = gestureReconizer.location(in: mapView)
         let coordinate = mapView.convert(location, toCoordinateFrom: mapView)
         
@@ -63,7 +65,8 @@ class MapViewController: UIViewController {
     
     private func initializeMapView() {
         
-        mapLongPressGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(mapLongTap))
+        mapLongPressGestureRecognizer = UILongPressGestureRecognizer(target: self, action: #selector(mapLongTap))
+        mapLongPressGestureRecognizer?.minimumPressDuration = CFTimeInterval.init(1)
         mapView.addGestureRecognizer(mapLongPressGestureRecognizer!)
         
         mapView.showsScale = true
