@@ -65,7 +65,6 @@ class MapViewController: UIViewController {
     }
     
     
-    
     func mapLongTap(_ gestureReconizer: UILongPressGestureRecognizer) {
         
         guard gestureReconizer.state == .ended else { return }
