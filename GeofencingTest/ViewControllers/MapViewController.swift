@@ -17,9 +17,9 @@ class MapViewController: UIViewController {
     fileprivate var cameraZoomInitialized = false
     fileprivate var mapLongPressGestureRecognizer: UILongPressGestureRecognizer?
     fileprivate var coordinateForGeofenceDetailView: CLLocationCoordinate2D?
+    fileprivate let geofenceService: GeofenceService = UserDefaultsGeofenceService()
     
     fileprivate var isTrackingLocation = true
-    fileprivate var geofences: [Geofence]?
     fileprivate var geofencesWithOverlays = [Geofence:(MKAnnotation,MKCircle)]()
     
     @IBOutlet weak var mapView: MKMapView!
@@ -89,7 +89,6 @@ class MapViewController: UIViewController {
     }
     
     fileprivate func loadRegisterAndDisplayGeofences() {
-        loadGeofences()
         displayGeofences()
         monitorGeofences()
     }
@@ -101,19 +100,9 @@ class MapViewController: UIViewController {
         locationManager.startUpdatingLocation()
     }
     
-    fileprivate func loadGeofences() {
-        
-        guard let geofenceJsonStringArray = UserDefaults.standard.value(forKey: "geofences") as? [String] else {
-            NSLog("No geofeonce in userDefaults found")
-            return
-        }
-        
-        geofences = geofenceJsonStringArray.flatMap({ Geofence(json: $0) })
-    }
-    
     private func displayGeofences() {
         
-        guard let geofences = self.geofences else { return }
+        let geofences = geofenceService.allGeofences()
         
         geofencesWithOverlays.forEach { (key: Geofence, value: (pin: MKAnnotation, radiusCircle: MKCircle)) in
             mapView.removeAnnotation(value.pin)
@@ -136,7 +125,7 @@ class MapViewController: UIViewController {
     
     private func monitorGeofences() {
         
-        guard let geofences = self.geofences else { return }
+        let geofences = geofenceService.allGeofences()
         
         geofences.forEach { (geofence) in
             startGeofenceMonitoring(geofence)
@@ -248,15 +237,11 @@ extension MapViewController: GeofenceDetailDelegte {
         
         NSLog("MapViewController-GeofenceDetailDelegate.saveGeofence(\(geofence))")
         
-        loadGeofences()
+        var geofences = geofenceService.allGeofences()
         
-        if geofences == nil {
-            geofences = [Geofence]()
-        }
+        geofences.append(geofence)
         
-        geofences!.append(geofence)
-        
-        let jsonStringArray = geofences!.map { $0.jsonRepresentation }
+        let jsonStringArray = geofences.map { $0.jsonRepresentation }
         
         UserDefaults.standard.set(jsonStringArray, forKey: "geofences")
         

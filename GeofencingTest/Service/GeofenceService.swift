@@ -16,7 +16,13 @@ protocol GeofenceService {
 class UserDefaultsGeofenceService: GeofenceService {
     
     func allGeofences() -> [Geofence] {
-    
+        
+       guard let geofenceJsonStringArray = UserDefaults.standard.value(forKey: "geofences") as? [String] else {
+            NSLog("No geofeonce in userDefaults found")
+            return [Geofence]()
+        }
+            
+        return geofenceJsonStringArray.flatMap({ Geofence(json: $0) })
     }
     
     func newGeofeofence(_ geofence: Geofence) {
