@@ -32,7 +32,7 @@ class MapViewController: UIViewController {
         initializeMapView()
         initiaizeLocationManager()
         
-        loadRegisterAndDisplayGeofences()
+        displayAndRegisterGeofences()
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -88,7 +88,8 @@ class MapViewController: UIViewController {
         mapCamera.altitude = 3000
     }
     
-    fileprivate func loadRegisterAndDisplayGeofences() {
+    fileprivate func displayAndRegisterGeofences() {
+        
         displayGeofences()
         monitorGeofences()
     }
@@ -245,6 +246,6 @@ extension MapViewController: GeofenceDetailDelegte {
         
         UserDefaults.standard.set(jsonStringArray, forKey: "geofences")
         
-        loadRegisterAndDisplayGeofences()
+        displayAndRegisterGeofences()
     }
 }
