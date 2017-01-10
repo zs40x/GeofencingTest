@@ -24,6 +24,7 @@ class MapViewController: UIViewController {
     
     @IBOutlet weak var mapView: MKMapView!
     @IBOutlet weak var buttonTrackLocation: UIBarButtonItem!
+    @IBOutlet weak var segmentedCtrlMapType: UISegmentedControl!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -50,6 +51,19 @@ class MapViewController: UIViewController {
     
         isTrackingLocation = isTrackingLocation ? false : true
     }
+    
+    @IBAction func actionSegmentedCtrlMapType(_ sender: Any) {
+        
+        switch segmentedCtrlMapType.selectedSegmentIndex {
+        case 1:
+            mapView.mapType = .satellite
+        case 2:
+            mapView.mapType = .hybrid
+        default:
+            mapView.mapType = .standard
+        }
+    }
+    
     
     
     func mapLongTap(_ gestureReconizer: UILongPressGestureRecognizer) {

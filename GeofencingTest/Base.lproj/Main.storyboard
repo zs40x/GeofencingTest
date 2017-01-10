@@ -28,9 +28,12 @@
                                         <rect key="frame" x="0.0" y="0.0" width="375" height="27"/>
                                         <segments>
                                             <segment title="Map"/>
-                                            <segment title="Terrain"/>
-                                            <segment title="Satelite"/>
+                                            <segment title="Satellite"/>
+                                            <segment title="Hybrid"/>
                                         </segments>
+                                        <connections>
+                                            <action selector="actionSegmentedCtrlMapType:" destination="BYZ-38-t0r" eventType="valueChanged" id="3CU-P9-ADM"/>
+                                        </connections>
                                     </segmentedControl>
                                     <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" verticalCompressionResistancePriority="751" mapType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="oxS-GO-dHo">
                                         <rect key="frame" x="0.0" y="28" width="375" height="575"/>
@@ -60,6 +63,7 @@
                     <connections>
                         <outlet property="buttonTrackLocation" destination="Cq7-o5-Md6" id="V2b-md-Iqp"/>
                         <outlet property="mapView" destination="oxS-GO-dHo" id="Lc2-LJ-2DG"/>
+                        <outlet property="segmentedCtrlMapType" destination="19S-mS-EUW" id="yZy-mB-iyL"/>
                         <segue destination="Sva-ba-X6g" kind="show" identifier="showGeofenceViewController" id="KiC-5Z-HAY"/>
                     </connections>
                 </viewController>
