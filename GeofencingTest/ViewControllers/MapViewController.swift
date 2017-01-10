@@ -212,6 +212,20 @@ extension MapViewController: CLLocationManagerDelegate {
         
         isTrackingLocation = false
         mapView.setCenter(annotation.coordinate, animated: true)
+        
+        let tappedGeofences: [Geofence] =
+            geofencesWithOverlays.flatMap {
+                (key: Geofence, value: (pin: MKAnnotation, radiusCircle: MKCircle)) in
+            
+                if key.coordinate.latitude == annotation.coordinate.latitude && key.coordinate.longitude == annotation.coordinate.longitude {
+                    return key
+                }
+                return nil
+            }
+        
+        guard let firstTappedGeofence = tappedGeofences.first else { return }
+        
+        showAlertDialog(title: "Geofence", errorMessage: firstTappedGeofence.identifier)
     }
 }
 
