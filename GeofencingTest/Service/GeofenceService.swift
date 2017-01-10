@@ -27,5 +27,12 @@ class UserDefaultsGeofenceService: GeofenceService {
     
     func newGeofeofence(_ geofence: Geofence) {
     
+        var geofences = allGeofences()
+        
+        geofences.append(geofence)
+        
+        let jsonStringArray = geofences.map { $0.jsonRepresentation }
+        
+        UserDefaults.standard.set(jsonStringArray, forKey: "geofences")
     }
 }

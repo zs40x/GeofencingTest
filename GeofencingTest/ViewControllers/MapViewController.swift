@@ -238,13 +238,7 @@ extension MapViewController: GeofenceDetailDelegte {
         
         NSLog("MapViewController-GeofenceDetailDelegate.saveGeofence(\(geofence))")
         
-        var geofences = geofenceService.allGeofences()
-        
-        geofences.append(geofence)
-        
-        let jsonStringArray = geofences.map { $0.jsonRepresentation }
-        
-        UserDefaults.standard.set(jsonStringArray, forKey: "geofences")
+        geofenceService.newGeofeofence(geofence)
         
         displayAndRegisterGeofences()
     }
