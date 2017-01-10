@@ -21,16 +21,33 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" mapType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="oxS-GO-dHo">
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="2" translatesAutoresizingMaskIntoConstraints="NO" id="07O-1R-jvA">
                                 <rect key="frame" x="0.0" y="64" width="375" height="603"/>
-                            </mapView>
+                                <subviews>
+                                    <segmentedControl opaque="NO" contentMode="scaleToFill" verticalHuggingPriority="251" verticalCompressionResistancePriority="751" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="19S-mS-EUW">
+                                        <rect key="frame" x="0.0" y="0.0" width="375" height="27"/>
+                                        <segments>
+                                            <segment title="Map"/>
+                                            <segment title="Terrain"/>
+                                            <segment title="Satelite"/>
+                                        </segments>
+                                    </segmentedControl>
+                                    <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" verticalCompressionResistancePriority="751" mapType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="oxS-GO-dHo">
+                                        <rect key="frame" x="0.0" y="28" width="375" height="575"/>
+                                    </mapView>
+                                </subviews>
+                                <constraints>
+                                    <constraint firstAttribute="trailing" secondItem="19S-mS-EUW" secondAttribute="trailing" id="8om-60-TuS"/>
+                                    <constraint firstItem="19S-mS-EUW" firstAttribute="leading" secondItem="07O-1R-jvA" secondAttribute="leading" id="yl4-4D-91w"/>
+                                </constraints>
+                            </stackView>
                         </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
-                            <constraint firstItem="oxS-GO-dHo" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" id="J3t-F0-wfp"/>
-                            <constraint firstItem="oxS-GO-dHo" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" id="PY8-nt-IQx"/>
-                            <constraint firstAttribute="trailing" secondItem="oxS-GO-dHo" secondAttribute="trailing" id="uAm-AG-NrC"/>
-                            <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="oxS-GO-dHo" secondAttribute="bottom" id="wgg-jk-Bbg"/>
+                            <constraint firstAttribute="bottom" secondItem="07O-1R-jvA" secondAttribute="bottom" id="3HQ-kZ-XSf"/>
+                            <constraint firstAttribute="trailing" secondItem="07O-1R-jvA" secondAttribute="trailing" id="O25-Xn-Ld6"/>
+                            <constraint firstItem="07O-1R-jvA" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" id="P7k-Wa-r2U"/>
+                            <constraint firstItem="07O-1R-jvA" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" id="TVu-Ai-c64"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" title="Geofencing" id="gon-jG-lYH">
