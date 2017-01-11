@@ -66,7 +66,6 @@ class MapViewController: UIViewController {
         }
     }
     
-    
     func mapLongTap(_ gestureReconizer: UILongPressGestureRecognizer) {
         
         guard gestureReconizer.state == .ended else { return }
@@ -77,6 +76,7 @@ class MapViewController: UIViewController {
         coordinateForGeofenceDetailView = coordinate
         performSegue(withIdentifier: "showGeofenceViewController", sender: self)
     }
+    
     
     private func initializeMapView() {
         
