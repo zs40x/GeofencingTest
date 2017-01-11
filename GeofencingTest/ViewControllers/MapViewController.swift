@@ -195,7 +195,7 @@ extension MapViewController: CLLocationManagerDelegate {
             geofencesWithOverlays.flatMap {
                 (key: Geofence, value: (pin: MKAnnotation, radiusCircle: MKCircle)) in
             
-                if key.coordinate.latitude == annotation.coordinate.latitude && key.coordinate.longitude == annotation.coordinate.longitude {
+                if key.coordinate == annotation.coordinate {
                     return key
                 }
                 return nil
