@@ -11,11 +11,7 @@ import CoreLocation
 
 class GeofenceMonitoring {
     
-    let locationManager: CLLocationManager
-    
-    init(locationManager: CLLocationManager) {
-        self.locationManager = locationManager
-    }
+    private let locationManager = CLLocationManager()
     
     
     func startGeofenceMonitoring(_ geofence: Geofence) {

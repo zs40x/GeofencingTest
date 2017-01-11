@@ -18,6 +18,7 @@ class MapViewController: UIViewController {
     fileprivate var mapLongPressGestureRecognizer: UILongPressGestureRecognizer?
     fileprivate var coordinateForGeofenceDetailView: CLLocationCoordinate2D?
     fileprivate let geofenceService: GeofenceService = UserDefaultsGeofenceService()
+    fileprivate let geofenceMonitoring = GeofenceMonitoring()
     
     fileprivate var isTrackingLocation = true
     fileprivate var geofencesWithOverlays = [Geofence:(MKAnnotation,MKCircle)]()
@@ -25,6 +26,7 @@ class MapViewController: UIViewController {
     @IBOutlet weak var mapView: MKMapView!
     @IBOutlet weak var buttonTrackLocation: UIBarButtonItem!
     @IBOutlet weak var segmentedCtrlMapType: UISegmentedControl!
+    
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -129,7 +131,7 @@ class MapViewController: UIViewController {
         let geofences = geofenceService.allGeofences()
         
         geofences.forEach { (geofence) in
-            startGeofenceMonitoring(geofence)
+            geofenceMonitoring.startGeofenceMonitoring(geofence)
         }
     }
 }
