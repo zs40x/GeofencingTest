@@ -12,6 +12,7 @@
 		D40BCB8A1E255D750005350B /* GeofenceService.swift in Sources */ = {isa = PBXBuildFile; fileRef = D40BCB891E255D750005350B /* GeofenceService.swift */; };
 		D40BCB8C1E25E9A60005350B /* GeofenceMonitoring.swift in Sources */ = {isa = PBXBuildFile; fileRef = D40BCB8B1E25E9A60005350B /* GeofenceMonitoring.swift */; };
 		D40BCB8E1E26B0640005350B /* CLLocationCoordinate2D.swift in Sources */ = {isa = PBXBuildFile; fileRef = D40BCB8D1E26B0640005350B /* CLLocationCoordinate2D.swift */; };
+		D40BCB901E26B2AE0005350B /* GeofencePopoverViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D40BCB8F1E26B2AE0005350B /* GeofencePopoverViewController.swift */; };
 		D40F991C1E1D744F00444561 /* UserNotifications.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D40F991B1E1D744F00444561 /* UserNotifications.framework */; };
 		D4B6C6931E192EF800C18281 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4B6C6921E192EF800C18281 /* AppDelegate.swift */; };
 		D4B6C6951E192EF800C18281 /* MapViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4B6C6941E192EF800C18281 /* MapViewController.swift */; };
@@ -41,6 +42,7 @@
 		D40BCB891E255D750005350B /* GeofenceService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = GeofenceService.swift; path = Service/GeofenceService.swift; sourceTree = "<group>"; };
 		D40BCB8B1E25E9A60005350B /* GeofenceMonitoring.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = GeofenceMonitoring.swift; path = Service/GeofenceMonitoring.swift; sourceTree = "<group>"; };
 		D40BCB8D1E26B0640005350B /* CLLocationCoordinate2D.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CLLocationCoordinate2D.swift; sourceTree = "<group>"; };
+		D40BCB8F1E26B2AE0005350B /* GeofencePopoverViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = GeofencePopoverViewController.swift; path = ViewControllers/GeofencePopoverViewController.swift; sourceTree = "<group>"; };
 		D40F991B1E1D744F00444561 /* UserNotifications.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UserNotifications.framework; path = System/Library/Frameworks/UserNotifications.framework; sourceTree = SDKROOT; };
 		D4B6C68F1E192EF800C18281 /* GeofencingTest.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = GeofencingTest.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		D4B6C6921E192EF800C18281 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -170,6 +172,7 @@
 			children = (
 				D4FE8CAB1E1C20BE002DDBF4 /* GeofenceDetailViewController.swift */,
 				D4B6C6941E192EF800C18281 /* MapViewController.swift */,
+				D40BCB8F1E26B2AE0005350B /* GeofencePopoverViewController.swift */,
 			);
 			name = ViewControllers;
 			sourceTree = "<group>";
@@ -290,6 +293,7 @@
 			files = (
 				D4B6C6951E192EF800C18281 /* MapViewController.swift in Sources */,
 				D4B6C6931E192EF800C18281 /* AppDelegate.swift in Sources */,
+				D40BCB901E26B2AE0005350B /* GeofencePopoverViewController.swift in Sources */,
 				D40BCB8E1E26B0640005350B /* CLLocationCoordinate2D.swift in Sources */,
 				D40BCB851E216EC50005350B /* UIViewController.swift in Sources */,
 				D40BCB7F1E1E02F50005350B /* Geofence.swift in Sources */,
