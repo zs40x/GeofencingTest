@@ -119,4 +119,3 @@ extension GeofenceDetailViewController: MKMapViewDelegate {
         return circleRenderer
     }
 }
-

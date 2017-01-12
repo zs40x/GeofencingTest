@@ -191,7 +191,7 @@
         <!--View Controller-->
         <scene sceneID="6k9-gU-vZU">
             <objects>
-                <viewController id="bHr-W5-FGY" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="geofencePopoverView" id="bHr-W5-FGY" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="m6N-nG-Ihe"/>
                         <viewControllerLayoutGuide type="bottom" id="o7P-Yb-Ch6"/>

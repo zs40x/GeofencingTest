@@ -203,7 +203,19 @@ extension MapViewController: CLLocationManagerDelegate {
         
         guard let firstTappedGeofence = tappedGeofences.first else { return }
         
-        showAlertDialog(title: "Geofence", errorMessage: firstTappedGeofence.identifier)
+        let popController = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "geofencePopoverView")
+        
+        // set the presentation style
+        popController.modalPresentationStyle = UIModalPresentationStyle.popover
+        
+        // set up the popover presentation controller
+        popController.popoverPresentationController?.permittedArrowDirections = UIPopoverArrowDirection.up
+        popController.popoverPresentationController?.delegate = self
+        popController.popoverPresentationController?.sourceView = view // button
+        popController.popoverPresentationController?.sourceRect = view.bounds
+        
+        // present the popover
+        self.present(popController, animated: true, completion: nil)
     }
 }
 
@@ -216,5 +228,12 @@ extension MapViewController: GeofenceDetailDelegte {
         geofenceService.newGeofeofence(geofence)
         
         displayAndRegisterGeofences()
+    }
+}
+
+extension MapViewController: UIPopoverPresentationControllerDelegate {
+    
+    func adaptivePresentationStyleForPresentationController(controller: UIPresentationController) -> UIModalPresentationStyle {
+        return UIModalPresentationStyle.none
     }
 }
