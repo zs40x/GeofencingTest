@@ -203,19 +203,36 @@ extension MapViewController: CLLocationManagerDelegate {
         
         guard let firstTappedGeofence = tappedGeofences.first else { return }
         
-        let popController = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "geofencePopoverView")
+        
+        /*let popController = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "geofencePopoverView")
         
         // set the presentation style
         popController.modalPresentationStyle = UIModalPresentationStyle.popover
+        popController.preferredContentSize = CGSize(width: 300, height: 300)
+
         
         // set up the popover presentation controller
         popController.popoverPresentationController?.permittedArrowDirections = UIPopoverArrowDirection.up
         popController.popoverPresentationController?.delegate = self
         popController.popoverPresentationController?.sourceView = view // button
-        popController.popoverPresentationController?.sourceRect = view.bounds
+        popController.popoverPresentationController?.sourceRect = view.frame
         
         // present the popover
-        self.present(popController, animated: true, completion: nil)
+        self.present(popController, animated: true, completion: nil)*/
+    }
+    
+    func mapView(_ mapView: MKMapView, viewFor annotation: MKAnnotation) -> MKAnnotationView? {
+        if annotation is MKUserLocation { return nil }
+        
+        let customAnnotationViewIdentifier = "MyAnnotation"
+        
+        var pin = mapView.dequeueReusableAnnotationView(withIdentifier: customAnnotationViewIdentifier)
+        if pin == nil {
+            pin = CustomAnnotationView(annotation: annotation, reuseIdentifier: customAnnotationViewIdentifier)
+        } else {
+            pin?.annotation = annotation
+        }
+        return pin
     }
 }
 
